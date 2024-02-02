@@ -4,12 +4,13 @@ body{
 }
 
 .container{
+    flex: 1;
     padding-top: 1%;
     width:80%;
     margin:auto;
     overflow:scroll;
     border: 2px solid black;
-    height: 600px;
+    margin-bottom: 5%;
 }
 
 
@@ -34,9 +35,11 @@ body{
 #main-footer {
     background: darkgray;
     text-align: center;
-    padding: 1%;
-    margin-top: 2%;
     border-top: solid black 2px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 #filter-container{
