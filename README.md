@@ -27,3 +27,10 @@ A web application created to help the user draft their fantasy hockey team by hi
   - Team
 * Calculate 82-game average for every player over a 3 season time frame
 * Uses ESPN fantasy scoring system, denoted `fpts`
+
+## Webpage Example
+![Example 1](ex1.png)
+*Table with 3-year player averages*
+
+![Example 2](ex2.png)
+*Table after using the player search on the 2022/2023 season*
