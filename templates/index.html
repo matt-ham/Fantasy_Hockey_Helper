@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>test</title>
+{% endblock %}
+
+{% block body %}
+<header id = "main-header">
+    <h1> Fantasy Hockey Helper </h1>
+</header>
+
+<div class = "container">
+    <div id = "filter-container">
+        <form action="/"  method = "POST">
+            <div class ="select-group">
+                <label>Position:</label>
+                <select name="Position" id="Position">
+                    <option {% if pos == "All" %}selected{% endif %} value="All">All</option>
+                    <option {% if pos == "F" %}selected{% endif %} value="F">F</option>
+                    <option {% if pos == "D" %}selected{% endif %} value="D">D</option>
+                </select>
+            </div>
+            <div class ="select-group">
+                <label>Season:</label>
+                <select name="Season" id="Season">
+                    {% if year %}
+                        <option value="2022" {% if year == "2022" %}selected{% endif %}>2022/2023</option>
+                        <option value="2021" {% if year == "2021" %}selected{% endif %}>2021/2022</option>
+                        <option value="2020" {% if year == "2020" %}selected{% endif %}>2020/2021</option>
+                        <option value="average" {% if year == "average" %}selected{% endif %}>average</option>
+                    {% else %}
+                        <option selected="selected" value="2022">2022/2023</option>
+                        <option value="2021">2021/2022</option>
+                        <option value="2020">2020/2021</option>
+                        <option value="average">average</option>
+                    {% endif %}
+                </select>
+            </div>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+    
+    <table id="data" class="table table-striped" >
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Team</th>
+                <th>Pos</th>
+                <th>GP</th>
+                <th>G</th>
+                <th>A</th>
+                <th>Pts</th>
+                <th>Pts/GP</th>
+                <th>fPts</th>
+                <th>fPts/GP</th>
+                <th>PPP</th>
+                <th>SHP</th>
+                <th>SOG</th>
+                <th>Hits</th>
+                <th>BS</th>
+                <th>Drafted</th>
+            </tr>
+        </thead>
+        <tbody>
+          {% for player in players %}
+            <tr>
+                <td>{{player.Player}}</td>
+                <td>{{player.Team}}</td>
+                <td>{{player.Pos}}</td>
+                <td>{{player.GP}}</td>
+                <td>{{player.G}}</td>
+                <td>{{player.A}}</td>
+                <td>{{player.Pts}}</td>
+                <td>{{player.PtsPerG}}</td>
+                <td>{{player.fPts}}</td>
+                <td>{{player.fPtsPerG}}</td>
+                <td>{{player.PPP}}</td>
+                <td>{{player.SHP}}</td>
+                <td>{{player.SOG}}</td>
+                <td>{{player.Hits}}</td>
+                <td>{{player.BS}}</td>
+                <td><input type="checkbox"></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<footer id = "main-footer">
+    <a href="https://www.linkedin.com/in/hamilton-matthew/" id="ld-link">
+        <i class="fa fa-linkedin-square" style="font-size:48px;color:#0077B5"></i>
+</footer>
+
+{% endblock %}
+
+    
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+    $('#data').DataTable({
+        "order": [[ 8, "desc" ]]
+    });
+    });
+</script>
+{% endblock %}

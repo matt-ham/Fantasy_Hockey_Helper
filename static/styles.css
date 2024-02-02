@@ -1,0 +1,55 @@
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    padding-top: 1%;
+    width:80%;
+    margin:auto;
+    overflow:scroll;
+    border: 2px solid black;
+    height: 600px;
+}
+
+
+#main-header{
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10%; 
+    background-color: darkgrey;
+    border-bottom: 2px solid black;
+    margin:auto;
+    overflow: hidden;
+    margin-bottom: 2%;
+}
+
+#main-header h1{
+    color:black;
+    text-align: center;
+}
+
+
+#main-footer {
+    background: darkgray;
+    text-align: center;
+    padding: 1%;
+    margin-top: 2%;
+    border-top: solid black 2px;
+}
+
+#filter-container{
+    height:100px;
+    margin-bottom: 2%;
+}
+
+
+.select-group {
+    padding-bottom: 1%;
+}
+
+
+.select-group label {
+    padding-left: .05%;
+}
